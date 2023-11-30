@@ -29,10 +29,4 @@ In response to command 1, a join command will be printed with below template
 ```
 Copy this from the output logs to be used in next instance for the next instance to be joined to this cluster
 
-Click Add new instance
-enter previously copied kubeadm join command on node2
-
-Click Add new instance
-enter previously copied kubeadm join command on node3
-
-
+Click Add new instance twice and enter previously copied kubeadm join command on node2 and node3
