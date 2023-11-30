@@ -1,4 +1,6 @@
-# Setup Kubernetes playground
+# Helm introduction
+
+## Setup Kubernetes playground
 
 Log in to https://labs.play-with-k8s.com/
 
@@ -30,3 +32,17 @@ In response to command 1, a join command will be printed with below template
 Copy this from the output logs to be used in next instance for the next instance to be joined to this cluster
 
 Click Add new instance twice and enter previously copied kubeadm join command on node2 and node3
+
+To install helm:
+
+```
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod +x get_helm.sh
+export VERIFY_CHECKSUM=false
+./get_helm.sh
+```
+
+Verify helm installed successfully with below
+```
+helm version
+```
