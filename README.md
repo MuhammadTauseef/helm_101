@@ -46,3 +46,46 @@ Verify helm installed successfully with below
 ```
 helm version
 ```
+
+## Create helm chart
+
+```
+helm create nginx_demo
+```
+
+This will create default directory structure with below output
+
+```
+[node1 nginx_demo]$ ls -R
+.:
+Chart.yaml  charts  templates  values.yaml
+
+./charts:
+
+./templates:
+NOTES.txt     deployment.yaml  ingress.yaml  serviceaccount.yaml
+_helpers.tpl  hpa.yaml         service.yaml  tests
+
+./templates/tests:
+test-connection.yaml
+[node1 nginx_demo]$ 
+```
+
+Chart.yaml would have below values after removing comments and empty lines
+```
+[node1 nginx_demo]$ egrep -v "^#|^$" Chart.yaml 
+apiVersion: v2
+name: nginx_demo
+description: A Helm chart for Kubernetes
+type: application
+version: 0.1.0
+appVersion: "1.16.0"
+[node1 nginx_demo]$ 
+```
+
+Remove all the template files and we will create templates maually.
+
+```
+rm -rf templates/*
+k create deploy nginx-deployment --image nginx --replicas 2 --port=80 --dry-run=client -o yaml > templates/deployment.yaml
+```
